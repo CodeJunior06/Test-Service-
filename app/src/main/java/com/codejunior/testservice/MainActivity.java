@@ -2,8 +2,10 @@ package com.codejunior.testservice;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
+import com.codejunior.testservice.modelo.data.Conexion;
 import com.codejunior.testservice.server.App;
 
 import java.io.IOException;
@@ -20,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
         System.out.println("Inicio del servicio");
         try {
             http.start();
+            Conexion conexion = new Conexion(getApplicationContext());
+            SQLiteDatabase sqLiteDatabase = conexion.getWritableDatabase();
             System.out.println("Inicio del servicio completo");
         } catch (IOException e) {
             e.printStackTrace();
