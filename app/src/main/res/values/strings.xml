@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Test Service</string>
+
+    <string-array name="ArrayMenu">
+        <item>ALAMACENAR</item>
+        <item>VER ARQUILERES</item>
+        <item>VER REGISTROS</item>
+        <item>VENTAS POR DIA</item>
+    </string-array>
 </resources>
