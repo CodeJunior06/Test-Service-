@@ -1,5 +1,10 @@
 package com.codejunior.testservice;
 
+
+import static com.codejunior.testservice.modelo.data.Schema.Utilities.INSERT_CATEGORIA;
+
+import static com.codejunior.testservice.modelo.data.Schema.Utilities.INSERT_VIDEOJUEGO;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.database.sqlite.SQLiteDatabase;
@@ -24,6 +29,9 @@ public class MainActivity extends AppCompatActivity {
             http.start();
             Conexion conexion = new Conexion(getApplicationContext());
             SQLiteDatabase sqLiteDatabase = conexion.getWritableDatabase();
+
+            sqLiteDatabase.execSQL(INSERT_CATEGORIA);
+            sqLiteDatabase.execSQL(INSERT_VIDEOJUEGO);
             System.out.println("Inicio del servicio completo");
         } catch (IOException e) {
             e.printStackTrace();

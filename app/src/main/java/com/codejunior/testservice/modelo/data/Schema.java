@@ -49,7 +49,7 @@ public final class Schema {
                 "CREATE TABLE " + TABLE_VIDEO_JUEGOS + " (" +
                         COLUMN_VIDEO_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                         COLUMN_VIDEO_TITULO + " TEXT," +
-                        COLUMN_VIDEO_ANIO + " TEXT,"+
+                        COLUMN_VIDEO_ANIO + " INT,"+
                         COLUMN_VIDEO_PROTAGONISTAS + " TEXT,"+
                         COLUMN_VIDEO_DIRECTOR + " TEXT," +
                         COLUMN_VIDEO_PRODUCTOR + " TEXT," +
@@ -89,5 +89,11 @@ public final class Schema {
 
         public static final String SQL_DELETE_FACTURAS =
                 "DROP TABLE IF EXISTS " + TABLE_FACTURA;
+
+        public static final String INSERT_CATEGORIA = "INSERT INTO " +TABLE_CATEGORIA+"("+COLUMN_CATEGORIA_NOMBRE+") VALUES('TERROR'),('ACCION'),('SUPERVIVIENCIA');";
+        public static final String INSERT_VIDEOJUEGO = "INSERT INTO " +TABLE_VIDEO_JUEGOS +"("+COLUMN_VIDEO_TITULO+", "+COLUMN_VIDEO_ANIO+", "+COLUMN_VIDEO_PROTAGONISTAS+", "+COLUMN_VIDEO_DIRECTOR+", "+COLUMN_VIDEO_PRODUCTOR+", "+COLUMN_VIDEO_TECNOLOGIA+", "+COLUMN_VIDEO_CATEGORIA+")" +
+                " VALUES ('A',2021,'DAVID','ERNESTO','FERNANDO','Xbox',1),('B',2021,'DAVID','ERNESTO','FERNANDO','Xbox',1)," +
+                "('C',2021,'DAVID','ERNESTO','FERNANDO','Nintendo',2),('D',2021,'DAVID','ERNESTO','FERNANDO','Nintendo',3),('E',2021,'DAVID','ERNESTO','FERNANDO','Play',3);";
+        
     }
 }
