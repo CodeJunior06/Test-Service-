@@ -1,6 +1,11 @@
 package com.codejunior.testservice.modelo.data;
 
+import static com.codejunior.testservice.view.Splash.getSqLiteDatabase;
+
+import android.database.Cursor;
 import android.provider.BaseColumns;
+
+import java.util.ArrayList;
 
 public final class Schema {
 
@@ -95,5 +100,23 @@ public final class Schema {
                 " VALUES ('A',2021,'DAVID','ERNESTO','FERNANDO','Xbox',1),('B',2021,'DAVID','ERNESTO','FERNANDO','Xbox',1)," +
                 "('C',2021,'DAVID','ERNESTO','FERNANDO','Nintendo',2),('D',2021,'DAVID','ERNESTO','FERNANDO','Nintendo',3),('E',2021,'DAVID','ERNESTO','FERNANDO','Play',3);";
         
+    }
+
+    public static ArrayList<String> getCategorias(ArrayList<String> categoria){
+
+        Cursor cursor= getSqLiteDatabase().rawQuery("SELECT "+ Schema.Utilities.COLUMN_CATEGORIA_NOMBRE +" FROM "+ Schema.Utilities.TABLE_CATEGORIA,null);
+
+
+        categoria.add( "SELECCIONE");
+        while (cursor.moveToNext()){
+
+            String categoria_nombre = cursor.getString(0);
+
+            if(!categoria.contains(categoria_nombre)){
+                categoria.add(categoria_nombre);
+            }
+
+        }
+        return categoria;
     }
 }

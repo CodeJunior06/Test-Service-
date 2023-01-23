@@ -12,10 +12,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TestService">
         <activity
+            android:name=".view.SelectCategoria"
+            android:exported="false" />
+        <activity
+            android:name=".view.RegisterLibro"
+            android:exported="false" />
+        <activity
             android:name=".view.Splash"
             android:exported="true"
             android:theme="@style/Theme.MaterialComponents.Light.NoActionBar.Bridge">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,9 +30,7 @@
         <activity
             android:name=".view.MainActivity"
             android:exported="true"
-            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar">
-        </activity>
-        <activity android:name=".view.Button"/>
+            android:theme="@style/Theme.MaterialComponents.Light.NoActionBar" />
     </application>
 
 </manifest>

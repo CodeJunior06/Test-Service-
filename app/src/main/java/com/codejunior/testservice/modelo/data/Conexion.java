@@ -7,11 +7,14 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
+
+import com.codejunior.testservice.view.Splash;
 
 public class Conexion extends SQLiteOpenHelper {
-
-    public Conexion(@Nullable Context context) {
-        super(context, Schema.Utilities.DB, null, Schema.Utilities.VERSION);
+    public static  Conexion conexion=null;
+    public Conexion() {
+        super(Splash.context, Schema.Utilities.DB, null, Schema.Utilities.VERSION);
     }
 
     @Override
@@ -30,4 +33,12 @@ public class Conexion extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL(SQL_DELETE_FACTURAS);
         onCreate(sqLiteDatabase);
     }
+
+    public static Conexion getInstance( ){
+        if(conexion==null){
+            conexion = new Conexion();
+        }
+        return conexion;
+    }
+
 }
